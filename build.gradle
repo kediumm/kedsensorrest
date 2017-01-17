@@ -18,11 +18,17 @@ group = 'com.kediumm.kedsensorrest'
 // project archive base name
 archivesBaseName = 'kdm.kedsensorrest'
 // project version
-version = '0.1'
+//version = '0.1'
 
 // war file name
-war.baseName = 'kedsensorrest'
+war.baseName = 'kdm.kedsensorrest'
 webAppDirName = 'src/main/webapp'
+
+/*
+war {
+    archivesBaseName = 'kedsensorrest.war'
+}
+*/
 
 // Java version compatibility to use when compiling Java source.
 sourceCompatibility = 1.8
@@ -43,6 +49,7 @@ dependencies {
     compile 'org.primefaces:primefaces:6.0'
     compile 'com.sun.faces:jsf-api:2.2.2'
     compile 'com.sun.faces:jsf-impl:2.2.2'
+    compile 'org.hibernate:hibernate-core:5.2.6.Final'
     compile group:'org.codehaus.jackson', name:'jackson-core-asl', version:'1.9.13'
     compile group:'com.fasterxml.jackson.core', name:'jackson-annotations', version:'2.8.5'
     compileOnly group:'javax.ws.rs', name:'javax.ws.rs-api', version:'2.0.1'
