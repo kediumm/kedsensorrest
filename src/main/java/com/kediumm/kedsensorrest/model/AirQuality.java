@@ -25,10 +25,20 @@ package com.kediumm.kedsensorrest.model;
 import java.io.Serializable;
 import java.sql.Timestamp;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+
 /**
  * 
  *
  */
+@Entity
+@Table(name = "air_quality")
 public class AirQuality implements Serializable {
 	
 	/**
@@ -36,11 +46,25 @@ public class AirQuality implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 	
+	@Id
+	@SequenceGenerator(name="AIRQUALITY_ID_GENERATOR", sequenceName="seqAirQuality")
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="AIRQUALITY_ID_GENERATOR")
+	@Column(name = "aqlt_id")
 	private Integer aqlt_id;
+	
+	@Column(name = "aqlt_date")
 	private Timestamp aqlt_date;
+	
+	@Column(name = "aqlt_local")
 	private String aqlt_local;
+	
+	@Column(name = "aqlt_origin")
 	private String aqlt_origin;
+	
+	@Column(name = "aqlt_indicator")
 	private String aqlt_indicator;
+	
+	@Column(name = "aqlt_price")
 	private String aqlt_price;
 	
 	
