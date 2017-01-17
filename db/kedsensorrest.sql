@@ -16,7 +16,6 @@ CREATE TABLE air_quality (
 
 	aqlt_id BIGINT NOT NULL,
 	aqlt_date TIMESTAMP,
-	aqlt_time VARCHAR(50),
 	aqlt_local VARCHAR(50),
 	aqlt_origin VARCHAR(10),
 	aqlt_indicator VARCHAR(10),
