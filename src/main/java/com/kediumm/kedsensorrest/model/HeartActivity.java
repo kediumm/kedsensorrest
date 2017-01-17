@@ -25,10 +25,20 @@ package com.kediumm.kedsensorrest.model;
 import java.io.Serializable;
 import java.sql.Timestamp;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+
 /**
- * 
+ *  
  *
  */
+@Entity
+@Table(name = "heart_activity")
 public class HeartActivity implements Serializable {
 	
 	/**
@@ -36,10 +46,22 @@ public class HeartActivity implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 	
+	@Id
+	@SequenceGenerator(name="HEARTACTIVITY_ID_GENERATOR", sequenceName="seqHeartActivity")
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="HEARTACTIVITY_ID_GENERATOR")
+	@Column(name = "hact_id")
 	private Integer hact_id;
+	
+	@Column(name = "hact_date")
 	private Timestamp hact_date;
+	
+	@Column(name = "hact_font")
 	private String hact_font;
+	
+	@Column(name = "hact_gps")
 	private String hact_gps;
+	
+	@Column(name = "hact_heartbeats")
 	private Double hact_heartbeats;
 	
 	/**
