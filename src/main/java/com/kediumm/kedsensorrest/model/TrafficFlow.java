@@ -25,6 +25,16 @@ package com.kediumm.kedsensorrest.model;
 import java.io.Serializable;
 import java.sql.Timestamp;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "traffic_flow")
 public class TrafficFlow implements Serializable {
 	
 	/**
@@ -32,13 +42,31 @@ public class TrafficFlow implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 	
+	@Id
+	@SequenceGenerator(name="TRAFFICFLOW_ID_GENERATOR", sequenceName="seqTrafficFlow")
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="TRAFFICFLOW_ID_GENERATOR")
+	@Column(name = "tflw_id")
 	private Integer tflw_id;
+	
+	@Column(name = "tflw_date")
 	private Timestamp tflw_date;
+	
+	@Column(name = "tflw_local")
 	private String tflw_local;
+	
+	@Column(name = "tflw_font")
 	private String tflw_font;
+	
+	@Column(name = "tflw_gps")
 	private String tflw_gps;
+	
+	@Column(name = "tflw_min_car")
 	private Double tflw_min_car;
+	
+	@Column(name = "tflw_foto")
 	private String tflw_foto;
+	
+	@Column(name = "tflw_price")
 	private String tflw_price;
 	
 	
