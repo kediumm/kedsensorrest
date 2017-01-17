@@ -25,10 +25,20 @@ package com.kediumm.kedsensorrest.model;
 import java.io.Serializable;
 import java.sql.Timestamp;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+
 /**
  * 
  *
  */
+@Entity
+@Table(name = "temperature")
 public class Temperature implements Serializable {
 	
 	/**
@@ -36,10 +46,22 @@ public class Temperature implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 	
+	@Id
+	@SequenceGenerator(name="TEMPERATURE_ID_GENERATOR", sequenceName="seqTemperature")
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="TEMPERATURE_ID_GENERATOR")
+	@Column(name = "tmp_id")
 	private Integer tmp_id;
-	private Timestamp tmp_date; 
+	
+	@Column(name = "tmp_date")
+	private Timestamp tmp_date;
+	
+	@Column(name = "tmp_local")
 	private StringBuilder tmp_local;
+	
+	@Column(name = "tmp_gps")
 	private StringBuilder tmp_gps;
+	
+	@Column(name = "tmp_temperature")
 	private Double tmp_tmperature;
 	
 	/**
