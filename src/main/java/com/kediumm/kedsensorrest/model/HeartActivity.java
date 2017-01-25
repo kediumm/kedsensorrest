@@ -32,6 +32,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *  
@@ -39,6 +40,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "heart_activity")
+@XmlRootElement
 public class HeartActivity implements Serializable {
 	
 	/**
@@ -50,44 +52,43 @@ public class HeartActivity implements Serializable {
 	@SequenceGenerator(name="HEARTACTIVITY_ID_GENERATOR", sequenceName="seqHeartActivity")
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="HEARTACTIVITY_ID_GENERATOR")
 	@Column(name = "hact_id")
-	private Integer hact_id;
+	private Integer _id;
 	
 	@Column(name = "hact_date")
-	private Timestamp hact_date;
+	private Timestamp _date;
 	
 	@Column(name = "hact_font")
-	private String hact_font;
+	private String _font;
 	
 	@Column(name = "hact_gps")
-	private String hact_gps;
+	private String _gps;
 	
 	@Column(name = "hact_heartbeats")
-	private Double hact_heartbeats;
+	private Double _heartbeats;
 	
 	/**
 	 * 
 	 */
 	public HeartActivity() {
-		super();
-		// TODO Auto-generated constructor stub
+		
 	}
 	
 	
 	/**
-	 * @param hact_id
-	 * @param hact_date
-	 * @param hact_font
-	 * @param hact_gps
-	 * @param hact_heartbeats
+	 * @param _id
+	 * @param _date
+	 * @param _font
+	 * @param _gps
+	 * @param _heartbeats
 	 */
-	public HeartActivity(Integer hact_id, Timestamp hact_date, String hact_font, String hact_gps,
-			Double hact_heartbeats) {
-		super();
-		this.hact_id = hact_id;
-		this.hact_date = hact_date;
-		this.hact_font = hact_font;
-		this.hact_gps = hact_gps;
-		this.hact_heartbeats = hact_heartbeats;
+	public HeartActivity(Integer _id, Timestamp _date, String _font, String _gps,
+			Double _heartbeats) {
+		
+		this._id = _id;
+		this._date = _date;
+		this._font = _font;
+		this._gps = _gps;
+		this._heartbeats = _heartbeats;
 	}
 
 
@@ -98,83 +99,80 @@ public class HeartActivity implements Serializable {
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
 		builder.append("HeartActivity [");
-		if (hact_id != null)
-			builder.append("hact_id=").append(hact_id).append(", ");
-		if (hact_date != null)
-			builder.append("hact_date=").append(hact_date).append(", ");
-		if (hact_font != null)
-			builder.append("hact_font=").append(hact_font).append(", ");
-		if (hact_gps != null)
-			builder.append("hact_gps=").append(hact_gps).append(", ");
-		if (hact_heartbeats != null)
-			builder.append("hact_heartbeats=").append(hact_heartbeats);
+		if (_id != null)
+			builder.append("_id=").append(_id).append(", ");
+		if (_date != null)
+			builder.append("_date=").append(_date).append(", ");
+		if (_font != null)
+			builder.append("_font=").append(_font).append(", ");
+		if (_gps != null)
+			builder.append("_gps=").append(_gps).append(", ");
+		if (_heartbeats != null)
+			builder.append("_heartbeats=").append(_heartbeats);
 		builder.append("]");
 		return builder.toString();
 	}
 
 
 	/**
-	 * @return the hact_id
+	 * @return the _id
 	 */
-	public Integer getHact_id() {
-		return hact_id;
+	public Integer getId() {
+		return _id;
 	}
 	/**
-	 * @param hact_id the hact_id to set
+	 * @param _id the _id to set
 	 */
-	public void setHact_id(Integer hact_id) {
-		this.hact_id = hact_id;
+	public void setId(Integer _id) {
+		this._id = _id;
 	}
 	/**
-	 * @return the hact_date
+	 * @return the _date
 	 */
-	public Timestamp getHact_date() {
-		return hact_date;
+	public Timestamp getDate() {
+		return _date;
 	}
 	/**
-	 * @param hact_date the hact_date to set
+	 * @param _date the _date to set
 	 */
-	public void setHact_date(Timestamp hact_date) {
-		this.hact_date = hact_date;
+	public void setDate(Timestamp _date) {
+		this._date = _date;
 	}
 	/**
-	 * @return the hact_font
+	 * @return the _font
 	 */
-	public String getHact_font() {
-		return hact_font;
+	public String getFont() {
+		return _font;
 	}
 	/**
-	 * @param hact_font the hact_font to set
+	 * @param _font the _font to set
 	 */
-	public void setHact_font(String hact_font) {
-		this.hact_font = hact_font;
+	public void setFont(String _font) {
+		this._font = _font;
 	}
 	/**
-	 * @return the hact_gps
+	 * @return the _gps
 	 */
-	public String getHact_gps() {
-		return hact_gps;
+	public String getGps() {
+		return _gps;
 	}
 	/**
-	 * @param hact_gps the hact_gps to set
+	 * @param _gps the _gps to set
 	 */
-	public void setHact_gps(String hact_gps) {
-		this.hact_gps = hact_gps;
+	public void setGps(String _gps) {
+		this._gps = _gps;
 	}
 	/**
-	 * @return the hact_heartbeats
+	 * @return the _heartbeats
 	 */
-	public Double getHact_heartbeats() {
-		return hact_heartbeats;
+	public Double getHeartbeats() {
+		return _heartbeats;
 	}
 	/**
-	 * @param hact_heartbeats the hact_heartbeats to set
+	 * @param _heartbeats the _heartbeats to set
 	 */
-	public void setHact_heartbeats(Double hact_heartbeats) {
-		this.hact_heartbeats = hact_heartbeats;
+	public void setHeartbeats(Double _heartbeats) {
+		this._heartbeats = _heartbeats;
 	}
-	
-	
-	
 
 }
