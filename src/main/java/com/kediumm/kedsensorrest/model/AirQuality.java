@@ -32,6 +32,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  * 
@@ -39,6 +40,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "air_quality")
+@XmlRootElement
 public class AirQuality implements Serializable {
 	
 	/**
@@ -50,22 +52,22 @@ public class AirQuality implements Serializable {
 	@SequenceGenerator(name="AIRQUALITY_ID_GENERATOR", sequenceName="seqAirQuality")
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="AIRQUALITY_ID_GENERATOR")
 	@Column(name = "aqlt_id")
-	private Integer aqlt_id;
+	private Integer _id;
 	
 	@Column(name = "aqlt_date")
-	private Timestamp aqlt_date;
+	private Timestamp _date;
 	
 	@Column(name = "aqlt_local")
-	private String aqlt_local;
+	private String _local;
 	
 	@Column(name = "aqlt_origin")
-	private String aqlt_origin;
+	private String _origin;
 	
 	@Column(name = "aqlt_indicator")
-	private String aqlt_indicator;
+	private String _indicator;
 	
 	@Column(name = "aqlt_price")
-	private String aqlt_price;
+	private String _price;
 	
 	
 	
@@ -73,30 +75,29 @@ public class AirQuality implements Serializable {
 	 * 
 	 */
 	public AirQuality() {
-		super();
-		// TODO Auto-generated constructor stub
+		
 	}
 	
 	
 
 
 	/**
-	 * @param aqlt_id
-	 * @param aqlt_date
-	 * @param aqlt_local
-	 * @param aqlt_origin
-	 * @param aqlt_indicator
-	 * @param aqlt_price
+	 * @param _id
+	 * @param _date
+	 * @param _local
+	 * @param _origin
+	 * @param _indicator
+	 * @param _price
 	 */
-	public AirQuality(Integer aqlt_id, Timestamp aqlt_date, String aqlt_local, String aqlt_origin,
-			String aqlt_indicator, String aqlt_price) {
-		super();
-		this.aqlt_id = aqlt_id;
-		this.aqlt_date = aqlt_date;
-		this.aqlt_local = aqlt_local;
-		this.aqlt_origin = aqlt_origin;
-		this.aqlt_indicator = aqlt_indicator;
-		this.aqlt_price = aqlt_price;
+	public AirQuality(Integer _id, Timestamp _date, String _local, String _origin,
+			String _indicator, String _price) {
+
+		this._id = _id;
+		this._date = _date;
+		this._local = _local;
+		this._origin = _origin;
+		this._indicator = _indicator;
+		this._price = _price;
 	}
 
 
@@ -109,96 +110,94 @@ public class AirQuality implements Serializable {
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
 		builder.append("AirQuality [");
-		if (aqlt_id != null)
-			builder.append("aqlt_id=").append(aqlt_id).append(", ");
-		if (aqlt_date != null)
-			builder.append("aqlt_date=").append(aqlt_date).append(", ");
-		if (aqlt_local != null)
-			builder.append("aqlt_local=").append(aqlt_local).append(", ");
-		if (aqlt_origin != null)
-			builder.append("aqlt_origin=").append(aqlt_origin).append(", ");
-		if (aqlt_indicator != null)
-			builder.append("aqlt_indicator=").append(aqlt_indicator).append(", ");
-		if (aqlt_price != null)
-			builder.append("aqlt_price=").append(aqlt_price);
+		if (_id != null)
+			builder.append("_id=").append(_id).append(", ");
+		if (_date != null)
+			builder.append("_date=").append(_date).append(", ");
+		if (_local != null)
+			builder.append("_local=").append(_local).append(", ");
+		if (_origin != null)
+			builder.append("_origin=").append(_origin).append(", ");
+		if (_indicator != null)
+			builder.append("_indicator=").append(_indicator).append(", ");
+		if (_price != null)
+			builder.append("_price=").append(_price);
 		builder.append("]");
 		return builder.toString();
 	}
 	
 	
 	/**
-	 * @return the aqlt_id
+	 * @return the _id
 	 */
-	public Integer getAqlt_id() {
-		return aqlt_id;
+	public Integer getId() {
+		return _id;
 	}
 	/**
-	 * @param aqlt_id the aqlt_id to set
+	 * @param _id the _id to set
 	 */
-	public void setAqlt_id(Integer aqlt_id) {
-		this.aqlt_id = aqlt_id;
+	public void setId(Integer _id) {
+		this._id = _id;
 	}
 	/**
-	 * @return the aqlt_date
+	 * @return the _date
 	 */
-	public Timestamp getAqlt_date() {
-		return aqlt_date;
+	public Timestamp getDate() {
+		return _date;
 	}
 	/**
-	 * @param aqlt_date the aqlt_date to set
+	 * @param _date the _date to set
 	 */
-	public void setAqlt_date(Timestamp aqlt_date) {
-		this.aqlt_date = aqlt_date;
+	public void setDate(Timestamp _date) {
+		this._date = _date;
 	}
 	/**
-	 * @return the aqlt_local
+	 * @return the _local
 	 */
-	public String getAqlt_local() {
-		return aqlt_local;
+	public String getLocal() {
+		return _local;
 	}
 	/**
-	 * @param aqlt_local the aqlt_local to set
+	 * @param _local the _local to set
 	 */
-	public void setAqlt_local(String aqlt_local) {
-		this.aqlt_local = aqlt_local;
+	public void setLocal(String _local) {
+		this._local = _local;
 	}
 	/**
-	 * @return the aqlt_origin
+	 * @return the _origin
 	 */
-	public String getAqlt_origin() {
-		return aqlt_origin;
+	public String getOrigin() {
+		return _origin;
 	}
 	/**
-	 * @param aqlt_origin the aqlt_origin to set
+	 * @param _origin the _origin to set
 	 */
-	public void setAqlt_origin(String aqlt_origin) {
-		this.aqlt_origin = aqlt_origin;
+	public void setOrigin(String _origin) {
+		this._origin = _origin;
 	}
 	/**
-	 * @return the aqlt_indicator
+	 * @return the _indicator
 	 */
-	public String getAqlt_indicator() {
-		return aqlt_indicator;
+	public String getIndicator() {
+		return _indicator;
 	}
 	/**
-	 * @param aqlt_indicator the aqlt_indicator to set
+	 * @param _indicator the _indicator to set
 	 */
-	public void setAqlt_indicator(String aqlt_indicator) {
-		this.aqlt_indicator = aqlt_indicator;
+	public void setIndicator(String _indicator) {
+		this._indicator = _indicator;
 	}
 	/**
-	 * @return the aqlt_price
+	 * @return the _price
 	 */
-	public String getAqlt_price() {
-		return aqlt_price;
+	public String getPrice() {
+		return _price;
 	}
 	/**
-	 * @param aqlt_price the aqlt_price to set
+	 * @param _price the _price to set
 	 */
-	public void setAqlt_price(String aqlt_price) {
-		this.aqlt_price = aqlt_price;
+	public void setPrice(String _price) {
+		this._price = _price;
 	}
-	
-	
 
 }
