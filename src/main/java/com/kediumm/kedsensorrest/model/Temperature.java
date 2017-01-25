@@ -40,146 +40,139 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "temperature")
 public class Temperature implements Serializable {
-	
+
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	
+
 	@Id
-	@SequenceGenerator(name="TEMPERATURE_ID_GENERATOR", sequenceName="seqTemperature")
-	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="TEMPERATURE_ID_GENERATOR")
+	@SequenceGenerator(name = "TEMPERATURE_ID_GENERATOR", sequenceName = "seqTemperature")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "TEMPERATURE_ID_GENERATOR")
 	@Column(name = "tmp_id")
-	private Integer tmp_id;
-	
+	private Integer _id;
+
 	@Column(name = "tmp_date")
-	private Timestamp tmp_date;
-	
+	private Timestamp _date;
+
 	@Column(name = "tmp_local")
-	private StringBuilder tmp_local;
-	
+	private String _local;
+
 	@Column(name = "tmp_gps")
-	private StringBuilder tmp_gps;
-	
+	private String _gps;
+
 	@Column(name = "tmp_temperature")
-	private Double tmp_tmperature;
-	
+	private Double _temperature;
+
 	/**
 	 * 
 	 */
 	public Temperature() {
-		super();
-		// TODO Auto-generated constructor stub
+
 	}
-	
-	
-	
-	
+
 	/**
-	 * @param tmp_id
-	 * @param tmp_date
-	 * @param tmp_local
-	 * @param tmp_gps
-	 * @param tmp_tmperature
+	 * @param _id
+	 * @param _date
+	 * @param _local
+	 * @param _gps
+	 * @param _tmperature
 	 */
-	public Temperature(Integer tmp_id, Timestamp tmp_date, StringBuilder tmp_local, StringBuilder tmp_gps,
-			Double tmp_tmperature) {
-		super();
-		this.tmp_id = tmp_id;
-		this.tmp_date = tmp_date;
-		this.tmp_local = tmp_local;
-		this.tmp_gps = tmp_gps;
-		this.tmp_tmperature = tmp_tmperature;
+	public Temperature(Integer _id, Timestamp _date, String _local, String _gps, Double _temperature) {
+
+		this._id = _id;
+		this._date = _date;
+		this._local = _local;
+		this._gps = _gps;
+		this._temperature = _temperature;
 	}
 
-
-
-
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
 	public String toString() {
-		StringBuilder builder = new StringBuilder();
-		builder.append("Temperature [");
-		if (tmp_id != null)
-			builder.append("tmp_id=").append(tmp_id).append(", ");
-		if (tmp_date != null)
-			builder.append("tmp_date=").append(tmp_date).append(", ");
-		if (tmp_local != null)
-			builder.append("tmp_local=").append(tmp_local).append(", ");
-		if (tmp_gps != null)
-			builder.append("tmp_gps=").append(tmp_gps).append(", ");
-		if (tmp_tmperature != null)
-			builder.append("tmp_tmperature=").append(tmp_tmperature);
-		builder.append("]");
-		return builder.toString();
+		return "Temperature [" + (_id != null ? "_id=" + _id + ", " : "")
+				+ (_date != null ? "_date=" + _date + ", " : "") + (_local != null ? "_local=" + _local + ", " : "")
+				+ (_gps != null ? "_gps=" + _gps + ", " : "")
+				+ (_temperature != null ? "_temperature=" + _temperature : "") + "]";
 	}
 
+	/**
+	 * @return the _id
+	 */
+	public Integer getId() {
+		return _id;
+	}
 
+	/**
+	 * @param _id
+	 *            the _id to set
+	 */
+	public void setId(Integer _id) {
+		this._id = _id;
+	}
 
+	/**
+	 * @return the _date
+	 */
+	public Timestamp getDate() {
+		return _date;
+	}
 
 	/**
-	 * @return the tmp_id
+	 * @param _date
+	 *            the _date to set
 	 */
-	public Integer getTmp_id() {
-		return tmp_id;
+	public void setDate(Timestamp _date) {
+		this._date = _date;
 	}
+
 	/**
-	 * @param tmp_id the tmp_id to set
+	 * @return the _local
 	 */
-	public void setTmp_id(Integer tmp_id) {
-		this.tmp_id = tmp_id;
+	public String getLocal() {
+		return _local;
 	}
+
 	/**
-	 * @return the tmp_date
+	 * @param _local
+	 *            the _local to set
 	 */
-	public Timestamp getTmp_date() {
-		return tmp_date;
+	public void setLocal(String _local) {
+		this._local = _local;
 	}
+
 	/**
-	 * @param tmp_date the tmp_date to set
+	 * @return the _gps
 	 */
-	public void setTmp_date(Timestamp tmp_date) {
-		this.tmp_date = tmp_date;
+	public String getGps() {
+		return _gps;
 	}
+
 	/**
-	 * @return the tmp_local
+	 * @param _gps
+	 *            the _gps to set
 	 */
-	public StringBuilder getTmp_local() {
-		return tmp_local;
+	public void setGps(String _gps) {
+		this._gps = _gps;
 	}
+
 	/**
-	 * @param tmp_local the tmp_local to set
+	 * @return the _temperature
 	 */
-	public void setTmp_local(StringBuilder tmp_local) {
-		this.tmp_local = tmp_local;
+	public Double getTemperature() {
+		return _temperature;
 	}
+
 	/**
-	 * @return the tmp_gps
+	 * @param _temperature
+	 *            the _temperature to set
 	 */
-	public StringBuilder getTmp_gps() {
-		return tmp_gps;
+	public void setTemperature(Double _temperature) {
+		this._temperature = _temperature;
 	}
-	/**
-	 * @param tmp_gps the tmp_gps to set
-	 */
-	public void setTmp_gps(StringBuilder tmp_gps) {
-		this.tmp_gps = tmp_gps;
-	}
-	/**
-	 * @return the tmp_tmperature
-	 */
-	public Double getTmp_tmperature() {
-		return tmp_tmperature;
-	}
-	/**
-	 * @param tmp_tmperature the tmp_tmperature to set
-	 */
-	public void setTmp_tmperature(Double tmp_tmperature) {
-		this.tmp_tmperature = tmp_tmperature;
-	}
-	
-	
 
 }
