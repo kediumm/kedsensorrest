@@ -46,28 +46,28 @@ public class TrafficFlow implements Serializable {
 	@SequenceGenerator(name="TRAFFICFLOW_ID_GENERATOR", sequenceName="seqTrafficFlow")
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="TRAFFICFLOW_ID_GENERATOR")
 	@Column(name = "tflw_id")
-	private Integer tflw_id;
+	private Integer _id;
 	
 	@Column(name = "tflw_date")
-	private Timestamp tflw_date;
+	private Timestamp _date;
 	
 	@Column(name = "tflw_local")
-	private String tflw_local;
+	private String _local;
 	
 	@Column(name = "tflw_font")
-	private String tflw_font;
+	private String _font;
 	
 	@Column(name = "tflw_gps")
-	private String tflw_gps;
+	private String _gps;
 	
 	@Column(name = "tflw_min_car")
-	private Double tflw_min_car;
+	private Double _min_car;
 	
 	@Column(name = "tflw_foto")
-	private String tflw_foto;
+	private String _foto;
 	
 	@Column(name = "tflw_price")
-	private String tflw_price;
+	private String _price;
 	
 	
 	
@@ -75,33 +75,30 @@ public class TrafficFlow implements Serializable {
 	 * 
 	 */
 	public TrafficFlow() {
-		super();
-		// TODO Auto-generated constructor stub
+		
 	}
 	
-	
-	
 	/**
-	 * @param tflw_id
-	 * @param tflw_date
-	 * @param tflw_local
-	 * @param tflw_font
-	 * @param tflw_gps
-	 * @param tflw_min_car
-	 * @param tflw_foto
-	 * @param tflw_price
+	 * @param _id
+	 * @param _date
+	 * @param _local
+	 * @param _font
+	 * @param _gps
+	 * @param _min_car
+	 * @param _foto
+	 * @param _price
 	 */
-	public TrafficFlow(Integer tflw_id, Timestamp tflw_date, String tflw_local, String tflw_font, String tflw_gps,
-			Double tflw_min_car, String tflw_foto, String tflw_price) {
-		super();
-		this.tflw_id = tflw_id;
-		this.tflw_date = tflw_date;
-		this.tflw_local = tflw_local;
-		this.tflw_font = tflw_font;
-		this.tflw_gps = tflw_gps;
-		this.tflw_min_car = tflw_min_car;
-		this.tflw_foto = tflw_foto;
-		this.tflw_price = tflw_price;
+	public TrafficFlow(Integer _id, Timestamp _date, String _local, String _font, String _gps,
+			Double _min_car, String _foto, String _price) {
+		
+		this._id = _id;
+		this._date = _date;
+		this._local = _local;
+		this._font = _font;
+		this._gps = _gps;
+		this._min_car = _min_car;
+		this._foto = _foto;
+		this._price = _price;
 	}
 
 	/* (non-Javadoc)
@@ -111,22 +108,22 @@ public class TrafficFlow implements Serializable {
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
 		builder.append("TrafficFlow [");
-		if (tflw_id != null)
-			builder.append("tflw_id=").append(tflw_id).append(", ");
-		if (tflw_date != null)
-			builder.append("tflw_date=").append(tflw_date).append(", ");
-		if (tflw_local != null)
-			builder.append("tflw_local=").append(tflw_local).append(", ");
-		if (tflw_font != null)
-			builder.append("tflw_font=").append(tflw_font).append(", ");
-		if (tflw_gps != null)
-			builder.append("tflw_gps=").append(tflw_gps).append(", ");
-		if (tflw_min_car != null)
-			builder.append("tflw_min_car=").append(tflw_min_car).append(", ");
-		if (tflw_foto != null)
-			builder.append("tflw_foto=").append(tflw_foto).append(", ");
-		if (tflw_price != null)
-			builder.append("tflw_price=").append(tflw_price);
+		if (_id != null)
+			builder.append("_id=").append(_id).append(", ");
+		if (_date != null)
+			builder.append("_date=").append(_date).append(", ");
+		if (_local != null)
+			builder.append("_local=").append(_local).append(", ");
+		if (_font != null)
+			builder.append("_font=").append(_font).append(", ");
+		if (_gps != null)
+			builder.append("_gps=").append(_gps).append(", ");
+		if (_min_car != null)
+			builder.append("_min_car=").append(_min_car).append(", ");
+		if (_foto != null)
+			builder.append("_foto=").append(_foto).append(", ");
+		if (_price != null)
+			builder.append("_price=").append(_price);
 		builder.append("]");
 		return builder.toString();
 	}
@@ -134,103 +131,100 @@ public class TrafficFlow implements Serializable {
 
 
 	/**
-	 * @return the tflw_id
+	 * @return the _id
 	 */
-	public Integer getTflw_id() {
-		return tflw_id;
+	public Integer getId() {
+		return _id;
 	}
 	/**
-	 * @param tflw_id the tflw_id to set
+	 * @param _id the _id to set
 	 */
-	public void setTflw_id(Integer tflw_id) {
-		this.tflw_id = tflw_id;
+	public void setId(Integer _id) {
+		this._id = _id;
 	}
 	/**
-	 * @return the tflw_date
+	 * @return the _date
 	 */
-	public Timestamp getTflw_date() {
-		return tflw_date;
+	public Timestamp getDate() {
+		return _date;
 	}
 	/**
-	 * @param tflw_date the tflw_date to set
+	 * @param _date the _date to set
 	 */
-	public void setTflw_date(Timestamp tflw_date) {
-		this.tflw_date = tflw_date;
+	public void setDate(Timestamp _date) {
+		this._date = _date;
 	}
 	/**
-	 * @return the tflw_local
+	 * @return the _local
 	 */
-	public String getTflw_local() {
-		return tflw_local;
+	public String getLocal() {
+		return _local;
 	}
 	/**
-	 * @param tflw_local the tflw_local to set
+	 * @param _local the _local to set
 	 */
-	public void setTflw_local(String tflw_local) {
-		this.tflw_local = tflw_local;
+	public void setLocal(String _local) {
+		this._local = _local;
 	}
 	/**
-	 * @return the tflw_font
+	 * @return the _font
 	 */
-	public String getTflw_font() {
-		return tflw_font;
+	public String getFont() {
+		return _font;
 	}
 	/**
-	 * @param tflw_font the tflw_font to set
+	 * @param _font the _font to set
 	 */
-	public void setTflw_font(String tflw_font) {
-		this.tflw_font = tflw_font;
+	public void setFont(String _font) {
+		this._font = _font;
 	}
 	/**
-	 * @return the tflw_gps
+	 * @return the _gps
 	 */
-	public String getTflw_gps() {
-		return tflw_gps;
+	public String getGps() {
+		return _gps;
 	}
 	/**
-	 * @param tflw_gps the tflw_gps to set
+	 * @param _gps the _gps to set
 	 */
-	public void setTflw_gps(String tflw_gps) {
-		this.tflw_gps = tflw_gps;
+	public void setGps(String _gps) {
+		this._gps = _gps;
 	}
 	/**
-	 * @return the tflw_min_car
+	 * @return the _min_car
 	 */
-	public Double getTflw_min_car() {
-		return tflw_min_car;
+	public Double getMinCar() {
+		return _min_car;
 	}
 	/**
-	 * @param tflw_min_car the tflw_min_car to set
+	 * @param _min_car the _min_car to set
 	 */
-	public void setTflw_min_car(Double tflw_min_car) {
-		this.tflw_min_car = tflw_min_car;
+	public void setMinCar(Double _min_car) {
+		this._min_car = _min_car;
 	}
 	/**
-	 * @return the tflw_foto
+	 * @return the _foto
 	 */
-	public String getTflw_foto() {
-		return tflw_foto;
+	public String getFoto() {
+		return _foto;
 	}
 	/**
-	 * @param tflw_foto the tflw_foto to set
+	 * @param _foto the _foto to set
 	 */
-	public void setTflw_foto(String tflw_foto) {
-		this.tflw_foto = tflw_foto;
+	public void setFoto(String _foto) {
+		this._foto = _foto;
 	}
 	/**
-	 * @return the tflw_price
+	 * @return the _price
 	 */
-	public String getTflw_price() {
-		return tflw_price;
+	public String getPrice() {
+		return _price;
 	}
 	/**
-	 * @param tflw_price the tflw_price to set
+	 * @param _price the _price to set
 	 */
-	public void setTflw_price(String tflw_price) {
-		this.tflw_price = tflw_price;
+	public void setPrice(String _price) {
+		this._price = _price;
 	}
-	
-	
-	
 
 }
