@@ -35,7 +35,7 @@ import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
- * 
+ * AirQuality Entity
  *
  */
 @Entity

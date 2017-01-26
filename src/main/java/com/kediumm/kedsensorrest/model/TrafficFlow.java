@@ -33,6 +33,10 @@ import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+/**
+ * TrafficFlow Entity
+ *
+ */
 @Entity
 @Table(name = "traffic_flow")
 public class TrafficFlow implements Serializable {
