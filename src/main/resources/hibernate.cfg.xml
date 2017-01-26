@@ -2,7 +2,7 @@
 <!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
                                          "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
- <session-factory name="jYinnaFactory">
+ <session-factory name="KedsensorRestFactory">
  
  	<!-- ######################################################################################################################### --> 
   	<!-- IDBC database connection settings -->
@@ -21,7 +21,7 @@
   	<!-- Select our SQL dialect -->
   	<!-- ######################################################################################################################### -->
   	<property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
-  	<property name="hibernate.jdbc.batch_size">0</property>
+  	<property name="hibernate.jdbc.batch_size">50</property>
   	
   	<!-- ######################################################################################################################### -->
   	<!-- Echo all executed SQL to stdout -->
@@ -36,12 +36,10 @@
 	<!-- ######################################################################################################################### -->
   	<!-- Classes -->
   	<!-- ######################################################################################################################### -->  
-    <!-- 
     <mapping class="com.kediumm.kedsensorrest.model.Temperature"/>
     <mapping class="com.kediumm.kedsensorrest.model.AirQuality"/>
     <mapping class="com.kediumm.kedsensorrest.model.TrafficFlow"/>
     <mapping class="com.kediumm.kedsensorrest.model.HeartActivity"/>
-   	 -->
-        
+   	 
  </session-factory>
 </hibernate-configuration>
