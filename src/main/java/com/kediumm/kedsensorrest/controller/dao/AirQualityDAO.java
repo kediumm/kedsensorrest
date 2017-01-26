@@ -84,11 +84,36 @@ public class AirQualityDAO implements Serializable {
 			
 			session.beginTransaction();
 			
-			List<AirQuality> lst_airqlt = session.createQuery("from AirQuality").getResultList();
+			List<AirQuality> airqlt = session.createQuery("from AirQuality").getResultList();
 			
 			session.getTransaction().commit();
 			
-			return lst_airqlt;
+			return airqlt;
+		
+		} finally {
+			
+			session.close();
+		}
+	}
+	
+	/**
+	 * Get all records of AirQuality by local
+	 * @return AirQuality list
+	 */
+	@SuppressWarnings("unchecked")
+	@XmlElement(name = "AirQualitiesByLocal")
+	public List<AirQuality> getAirQualitiesByLocal(String local) {
+		
+		try {
+			session = sessionFactory.getCurrentSession();
+			
+			session.beginTransaction();
+			
+			List<AirQuality> airqlt = session.createQuery("from AirQuality a where a._local = '" + local + "'").getResultList();
+			
+			session.getTransaction().commit();
+			
+			return airqlt;
 		
 		} finally {
 			

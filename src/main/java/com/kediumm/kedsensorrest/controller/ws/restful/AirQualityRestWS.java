@@ -27,7 +27,9 @@ import java.util.List;
 import javax.ejb.Stateless;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
+import javax.ws.rs.NotFoundException;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.GenericEntity;
@@ -60,9 +62,29 @@ public class AirQualityRestWS {
 	@GET
 	public Response getAll() {
 		
-		List<AirQuality> lst_airqlt = _airquality.getAll();
+		List<AirQuality> airqlt = _airquality.getAll();
 		
-		GenericEntity<List<AirQuality>> list = new GenericEntity<List<AirQuality>>(lst_airqlt) {};
+		GenericEntity<List<AirQuality>> list = new GenericEntity<List<AirQuality>>(airqlt) {};
+		
+		return Response.ok( list ).build();
+	}
+	
+	/**
+	 * Get all records of AirQuality by local
+	 * @return AirQuality list
+	 */
+	@GET
+	@Path("{local}")
+	public Response getAirQualitiesByLocal(@PathParam("local") String local) {
+		
+		List<AirQuality> airqlt = _airquality.getAirQualitiesByLocal(local);
+		
+		if ( airqlt.isEmpty() ) {
+			
+			throw new NotFoundException();
+		}
+		
+		GenericEntity<List<AirQuality>> list = new GenericEntity<List<AirQuality>>(airqlt) {};
 		
 		return Response.ok( list ).build();
 	}
