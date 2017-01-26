@@ -11,8 +11,10 @@ The quick start gives very basic example of running client and server on the sam
 
 > The minimum requirements to run the quick start are: 
 >  * JDK 1.8 or above
->  * Hibernate 5.2.6
->  * Gradle 3.3
+>  * EJB 3.2
+>  * Hibernate 5.2.6 or above
+>  * Postgresql 9.4 or above
+>  * Gradle 3.3 or above
 >  * TestNG 6.9.10 or above
 
 # Documents
