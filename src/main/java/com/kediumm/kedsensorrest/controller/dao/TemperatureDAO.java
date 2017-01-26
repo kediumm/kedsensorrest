@@ -84,15 +84,41 @@ public class TemperatureDAO implements Serializable {
 		
 			session.beginTransaction();
 		
-			List<Temperature> lst_temps = session.createQuery("from Temperature").getResultList();
+			List<Temperature> temperatues = session.createQuery("from Temperature").getResultList();
 		
 			session.getTransaction().commit();
 			
-			return lst_temps;
+			return temperatues;
 		
 		} finally {
 			
-			//sessionFactory.close();
+			session.close();
+		}
+		
+	}
+	
+	/**
+	 * Get records of Temperature by local 
+	 * @return Temperature list
+	 */
+	@SuppressWarnings("unchecked")
+	@XmlElement(name = "TemperaturesByLocal")
+	public List<Temperature> getTemperatureByLocal(String local) {
+		
+		try {
+		
+			session = sessionFactory.getCurrentSession();
+		
+			session.beginTransaction();
+		
+			List<Temperature> temperatues = session.createQuery("from Temperature t where t._local = '" + local + "'").getResultList();
+		
+			session.getTransaction().commit();
+			
+			return temperatues;
+		
+		} finally {
+			
 			session.close();
 		}
 		

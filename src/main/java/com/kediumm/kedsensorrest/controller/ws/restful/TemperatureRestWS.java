@@ -27,7 +27,9 @@ import java.util.List;
 import javax.ejb.Stateless;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
+import javax.ws.rs.NotFoundException;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.GenericEntity;
@@ -60,9 +62,29 @@ public class TemperatureRestWS {
 	@GET
 	public Response getAll() {
 		
-		List<Temperature> lst_temp = _temperature.getAll(); 
+		List<Temperature> temperatues = _temperature.getAll(); 
 		
-		GenericEntity<List<Temperature>> list = new GenericEntity<List<Temperature>>(lst_temp) {};
+		GenericEntity<List<Temperature>> list = new GenericEntity<List<Temperature>>(temperatues) {};
+		
+		return Response.ok( list ).build();
+	}
+	
+	/**
+	 * Get records of Temperature by local 
+	 * @return Temperature list
+	 */
+	@GET
+	@Path("{local}")
+	public Response getTemperaturesByLocal(@PathParam("local") String local) {
+		
+		List<Temperature> temperatues = _temperature.getTemperatureByLocal(local); 
+		
+		if ( temperatues.isEmpty() ) {
+			
+			throw new NotFoundException();
+		}
+		
+		GenericEntity<List<Temperature>> list = new GenericEntity<List<Temperature>>(temperatues) {};
 		
 		return Response.ok( list ).build();
 	}
