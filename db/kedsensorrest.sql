@@ -131,17 +131,17 @@ INSERT INTO traffic_flow VALUES (nextval('seqTrafficFlow'), to_timestamp('2016-0
 INSERT INTO traffic_flow VALUES (nextval('seqTrafficFlow'), to_timestamp('2016-06-12 10:11:100', 'YYYYMMDD HH24:MI:SS'), 'VCI-A3', 'Brisa', 'F', 128, '', 'CC');
 
 INSERT INTO heart_activity VALUES (nextval('seqHeartActivity'), to_timestamp('2016-06-14 07:00:100', 'YYYYMMDD HH24:MI:SS'), 'Mobil1', '', 65);
-INSERT INTO heart_activity VALUES (nextval('seqHeartActivity'), to_timestamp('2016-06-14 08:00:003', 'YYYYMMDD HH24:MI:SS'), 'Mobil1', '', 70);
+INSERT INTO heart_activity VALUES (nextval('seqHeartActivity'), to_timestamp('2016-06-14 08:00:003', 'YYYYMMDD HH24:MI:SS'), 'Mobil3', '', 70);
 INSERT INTO heart_activity VALUES (nextval('seqHeartActivity'), to_timestamp('2016-06-14 09:00:016', 'YYYYMMDD HH24:MI:SS'), 'Mobil1', '', 75);
-INSERT INTO heart_activity VALUES (nextval('seqHeartActivity'), to_timestamp('2016-06-14 10:00:020', 'YYYYMMDD HH24:MI:SS'), 'Mobil1', '', 68);
-INSERT INTO heart_activity VALUES (nextval('seqHeartActivity'), to_timestamp('2016-06-14 11:00:130', 'YYYYMMDD HH24:MI:SS'), 'Mobil1', '', 65);
+INSERT INTO heart_activity VALUES (nextval('seqHeartActivity'), to_timestamp('2016-06-14 10:00:020', 'YYYYMMDD HH24:MI:SS'), 'Mobil2', '', 68);
+INSERT INTO heart_activity VALUES (nextval('seqHeartActivity'), to_timestamp('2016-06-14 11:00:130', 'YYYYMMDD HH24:MI:SS'), 'Mobil2', '', 65);
 INSERT INTO heart_activity VALUES (nextval('seqHeartActivity'), to_timestamp('2016-06-14 12:00:040', 'YYYYMMDD HH24:MI:SS'), 'Mobil1', '', 67);
-INSERT INTO heart_activity VALUES (nextval('seqHeartActivity'), to_timestamp('2016-06-14 13:00:340', 'YYYYMMDD HH24:MI:SS'), 'Mobil1', '', 71);
+INSERT INTO heart_activity VALUES (nextval('seqHeartActivity'), to_timestamp('2016-06-14 13:00:340', 'YYYYMMDD HH24:MI:SS'), 'Mobil2', '', 71);
 INSERT INTO heart_activity VALUES (nextval('seqHeartActivity'), to_timestamp('2016-06-14 14:00:200', 'YYYYMMDD HH24:MI:SS'), 'Mobil1', '', 94);
 INSERT INTO heart_activity VALUES (nextval('seqHeartActivity'), to_timestamp('2016-06-14 15:00:201', 'YYYYMMDD HH24:MI:SS'), 'Mobil1', '', 85);
-INSERT INTO heart_activity VALUES (nextval('seqHeartActivity'), to_timestamp('2016-06-14 16:00:420', 'YYYYMMDD HH24:MI:SS'), 'Mobil1', '', 69);
+INSERT INTO heart_activity VALUES (nextval('seqHeartActivity'), to_timestamp('2016-06-14 16:00:420', 'YYYYMMDD HH24:MI:SS'), 'Mobil3', '', 69);
 INSERT INTO heart_activity VALUES (nextval('seqHeartActivity'), to_timestamp('2016-06-14 17:00:342', 'YYYYMMDD HH24:MI:SS'), 'Mobil1', '', 73);
-INSERT INTO heart_activity VALUES (nextval('seqHeartActivity'), to_timestamp('2016-06-14 18:00:281', 'YYYYMMDD HH24:MI:SS'), 'Mobil1', '', 83);
+INSERT INTO heart_activity VALUES (nextval('seqHeartActivity'), to_timestamp('2016-06-14 18:00:281', 'YYYYMMDD HH24:MI:SS'), 'Mobil2', '', 83);
 INSERT INTO heart_activity VALUES (nextval('seqHeartActivity'), to_timestamp('2016-06-14 19:00:300', 'YYYYMMDD HH24:MI:SS'), 'Mobil1', '', 92);
 INSERT INTO heart_activity VALUES (nextval('seqHeartActivity'), to_timestamp('2016-06-14 20:00:544', 'YYYYMMDD HH24:MI:SS'), 'Mobil1', '', 93);
 
