@@ -27,7 +27,9 @@ import java.util.List;
 import javax.ejb.Stateless;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
+import javax.ws.rs.NotFoundException;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.GenericEntity;
@@ -60,9 +62,29 @@ public class HeartActivityRestWS {
 	@GET
 	public Response getAll() {
 		
-		List<HeartActivity> lst_heartactivities = _heartactivity.getAll();
+		List<HeartActivity> heartactivities = _heartactivity.getAll();
 		
-		GenericEntity<List<HeartActivity>> list = new GenericEntity<List<HeartActivity>>(lst_heartactivities) {};
+		GenericEntity<List<HeartActivity>> list = new GenericEntity<List<HeartActivity>>( heartactivities ) {};
+		
+		return Response.ok( list ).build();
+	}
+	
+	/**
+	 * Get records of HeartActivity by font 
+	 * @return HeartActivity list
+	 */
+	@GET
+	@Path("{font}")
+	public Response getAll(@PathParam("font") String font) {
+		
+		List<HeartActivity> heartactivities = _heartactivity.getHeartActivitiesByFont(font);
+		
+		if ( heartactivities.isEmpty() ) {
+			
+			throw new NotFoundException();
+		}
+		
+		GenericEntity<List<HeartActivity>> list = new GenericEntity<List<HeartActivity>>( heartactivities ) {};
 		
 		return Response.ok( list ).build();
 	}

@@ -85,11 +85,37 @@ public class HeartActivityDAO implements Serializable {
 			
 			session.beginTransaction();
 			
-			List<HeartActivity> lst_hactivity = session.createQuery("from HeartActivity").getResultList();
+			List<HeartActivity> hactivity = session.createQuery("from HeartActivity").getResultList();
 			
 			session.getTransaction().commit();
 			
-			return lst_hactivity;
+			return hactivity;
+		
+		} finally {
+			
+			session.close();
+		}
+	}
+	
+	/**
+	 * Get records of HeartActivity by font 
+	 * @return HeartActivity list
+	 */
+	@SuppressWarnings("unchecked")
+	@XmlElement(name = "HeartActivitiesByFont")
+	public List<HeartActivity> getHeartActivitiesByFont(String font) {
+		
+		try {
+			
+			session = sessionFactory.getCurrentSession();
+			
+			session.beginTransaction();
+			
+			List<HeartActivity> hactivity = session.createQuery("from HeartActivity h where h._font = '" + font + "'").getResultList();
+			
+			session.getTransaction().commit();
+			
+			return hactivity;
 		
 		} finally {
 			
