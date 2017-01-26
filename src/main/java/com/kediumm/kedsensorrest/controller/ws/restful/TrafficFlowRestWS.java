@@ -27,7 +27,9 @@ import java.util.List;
 import javax.ejb.Stateless;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
+import javax.ws.rs.NotFoundException;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.GenericEntity;
@@ -67,6 +69,25 @@ public class TrafficFlowRestWS {
 		return Response.ok( list ).build();
 	}
 	
+	/**
+	 * Get records of TrafficFlow by local 
+	 * @return TrafficFlow list
+	 */
+	@GET
+	@Path("{local}")
+	public Response getTrafficFlowByLocal(@PathParam("local") String local) {
+		
+		List<TrafficFlow> trafficflows = _trafficflow.getTrafficFlowByLocal(local);
+		
+		if ( trafficflows.isEmpty() ) {
+			
+			throw new NotFoundException();
+		}
+		
+		GenericEntity<List<TrafficFlow>> list = new GenericEntity<List<TrafficFlow>>(trafficflows) {};
+		
+		return Response.ok( list ).build();
+	}
 	
 
 }

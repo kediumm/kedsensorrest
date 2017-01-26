@@ -84,16 +84,43 @@ public class TrafficFlowDAO implements Serializable {
 			
 			session.beginTransaction();
 			
-			List<TrafficFlow> lst_tflow = session.createQuery("from TrafficFlow").getResultList();
+			List<TrafficFlow> tflows = session.createQuery("from TrafficFlow").getResultList();
 			
 			session.getTransaction().commit();
 			
-			return lst_tflow;
+			return tflows;
 		
 		} finally {
 			
 			session.close();
 		}
 	}
+	
+	/**
+	 * Get records of TrafficFlow by local 
+	 * @return TrafficFlow list
+	 */
+	@SuppressWarnings("unchecked")
+	@XmlElement(name = "TrafficFlowByLocal")
+	public List<TrafficFlow> getTrafficFlowByLocal(String local) {
+		
+		try {
+			
+			session = sessionFactory.getCurrentSession();
+			
+			session.beginTransaction();
+			
+			List<TrafficFlow> tflows = session.createQuery("from TrafficFlow f where f._local = '" + local + "'").getResultList();
+			
+			session.getTransaction().commit();
+			
+			return tflows;
+		
+		} finally {
+			
+			session.close();
+		}
+	}
+	
 
 }
