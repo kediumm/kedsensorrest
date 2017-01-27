@@ -122,5 +122,29 @@ public class TrafficFlowDAO implements Serializable {
 		}
 	}
 	
+	/**
+	 * Create new TrafficFlow record
+	 * 
+	 */
+	public void createTrafficFlow(TrafficFlow trafficFlow) {
+		
+		try {
+			
+			session = sessionFactory.getCurrentSession();
+			
+			session.beginTransaction();
+			
+			session.save(trafficFlow);
+			
+			session.getTransaction().commit();
+			
+		
+		} finally {
+			
+			session.close();
+		}
+		
+	}
+	
 
 }
