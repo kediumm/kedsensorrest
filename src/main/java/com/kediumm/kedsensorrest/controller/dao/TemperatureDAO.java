@@ -122,6 +122,29 @@ public class TemperatureDAO implements Serializable {
 			session.close();
 		}
 		
+	}
+	
+	/**
+	 * Create new Temperature record
+	 * 
+	 */
+	public void createTemperature(Temperature temperature) {
+		
+		try {
+			
+			session = sessionFactory.getCurrentSession();
+			
+			session.beginTransaction();
+			
+			session.save(temperature);
+			
+			session.getTransaction().commit();
+			
+		
+		} finally {
+			
+			session.close();
+		}
 		
 	}
 	
