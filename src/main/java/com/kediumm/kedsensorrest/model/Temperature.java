@@ -47,7 +47,7 @@ public class Temperature implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@SequenceGenerator(name = "TEMPERATURE_ID_GENERATOR", sequenceName = "seqTemperature")
+	@SequenceGenerator(name = "TEMPERATURE_ID_GENERATOR", sequenceName = "seqtemperature")
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "TEMPERATURE_ID_GENERATOR")
 	@Column(name = "tmp_id")
 	private Integer _id;
