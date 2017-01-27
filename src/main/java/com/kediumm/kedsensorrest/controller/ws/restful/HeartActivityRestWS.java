@@ -25,9 +25,11 @@ package com.kediumm.kedsensorrest.controller.ws.restful;
 import java.util.List;
 
 import javax.ejb.Stateless;
+import javax.ws.rs.BadRequestException;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.NotFoundException;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
@@ -87,6 +89,24 @@ public class HeartActivityRestWS {
 		GenericEntity<List<HeartActivity>> list = new GenericEntity<List<HeartActivity>>( heartactivities ) {};
 		
 		return Response.ok( list ).build();
+	}
+	
+	/**
+	 * Create new HeartActivity record
+	 * @param heartActivity
+	 * @return
+	 */
+	@POST
+	public Response create(HeartActivity heartActivity) {
+	
+		if ( heartActivity == null ) {
+			
+			throw new BadRequestException();
+		}
+		
+		_heartactivity.createHeartActivity(heartActivity);
+		
+		return Response.ok().build();
 	}
 
 }
