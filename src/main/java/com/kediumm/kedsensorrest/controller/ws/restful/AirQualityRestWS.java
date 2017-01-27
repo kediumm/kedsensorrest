@@ -25,9 +25,11 @@ package com.kediumm.kedsensorrest.controller.ws.restful;
 import java.util.List;
 
 import javax.ejb.Stateless;
+import javax.ws.rs.BadRequestException;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.NotFoundException;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
@@ -87,5 +89,25 @@ public class AirQualityRestWS {
 		GenericEntity<List<AirQuality>> list = new GenericEntity<List<AirQuality>>(airqlt) {};
 		
 		return Response.ok( list ).build();
+	}
+	
+	/**
+	 * Create new AirQuality record
+	 * @param airQuality
+	 * @return
+	 */
+	@POST
+	public Response create(AirQuality airQuality) {
+		
+		//Response response = Response.notModified().build();
+		//response.ok().build();
+		if ( airQuality == null ) {
+			
+			throw new BadRequestException();
+		}
+		
+		_airquality.createAirQuality(airQuality);
+		
+		return Response.ok().build();
 	}
 }
