@@ -16,7 +16,7 @@
 		<!-- <url-pattern>*.jsf</url-pattern> -->
 		<url-pattern>*.xhtml</url-pattern>
 	</servlet-mapping>
-
+	 
 	<context-param>
 		<description>State saving method: 'client' or 'server' (=default). See JSF Specification 2.5.2</description>
 		<param-name>javax.faces.STATE_SAVING_METHOD</param-name>
@@ -39,20 +39,9 @@
 		<param-name>javax.faces.PROJECT_STAGE</param-name>
 		<param-value>Development</param-value>
 	</context-param>
-	<!-- Configuração para forçar o servidor a procurar por atualizações nas 
-		páginas num determinado período de tempo em segundos -->
 	<context-param>
 		<param-name>javax.faces.FACELETS_REFRESH_PERIOD</param-name>
 		<param-value>2</param-value>
-	</context-param>
-	<context-param> <!-- To resolve resource caching issues we can use below context param instead 
-			clearing cache frequently. -->
-		<param-name>org.primefaces.extensions.WRAP_PRIME_FACES_RESOURCES</param-name>
-		<param-value>true</param-value>
-	</context-param>
-	<context-param>
-		<param-name>primefaces.CLIENT_SIDE_VALIDATION</param-name>
-		<param-value>true</param-value>
 	</context-param>
 
 	<welcome-file-list>
