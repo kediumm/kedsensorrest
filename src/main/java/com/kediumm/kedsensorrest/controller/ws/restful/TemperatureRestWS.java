@@ -25,9 +25,11 @@ package com.kediumm.kedsensorrest.controller.ws.restful;
 import java.util.List;
 
 import javax.ejb.Stateless;
+import javax.ws.rs.BadRequestException;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.NotFoundException;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
@@ -87,6 +89,26 @@ public class TemperatureRestWS {
 		GenericEntity<List<Temperature>> list = new GenericEntity<List<Temperature>>(temperatues) {};
 		
 		return Response.ok( list ).build();
+	}
+	
+	/**
+	 * Create new Temperature record
+	 * @param temperature
+	 * @return
+	 */
+	@POST
+	public Response create(Temperature temperature) {
+		
+		//Response response = Response.notModified().build();
+		//response.ok().build();
+		if ( temperature == null ) {
+			
+			throw new BadRequestException();
+		}
+		
+		_temperature.createTemperature(temperature);
+		
+		return Response.ok().build();
 	}
 
 }
