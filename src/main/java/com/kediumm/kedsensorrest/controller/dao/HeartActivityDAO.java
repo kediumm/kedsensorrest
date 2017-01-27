@@ -122,4 +122,28 @@ public class HeartActivityDAO implements Serializable {
 			session.close();
 		}
 	}
+	
+	/**
+	 * Create new HeartActivity record
+	 * 
+	 */
+	public void createHeartActivity(HeartActivity heartActivity) {
+		
+		try {
+			
+			session = sessionFactory.getCurrentSession();
+			
+			session.beginTransaction();
+			
+			session.save(heartActivity);
+			
+			session.getTransaction().commit();
+			
+		
+		} finally {
+			
+			session.close();
+		}
+		
+	}
 }
