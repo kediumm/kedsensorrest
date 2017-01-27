@@ -118,7 +118,35 @@ public class AirQualityDAO implements Serializable {
 		} finally {
 			
 			session.close();
+			
 		}
 	}
-
+	
+	/**
+	 * Create new AirQuality record
+	 * 
+	 */
+	@XmlElement(name = "createAirQuality")
+	public void createAirQuality(AirQuality airQuality) {
+		
+		try {
+			
+			session = sessionFactory.getCurrentSession();
+			
+			session.beginTransaction();
+			
+			session.save(airQuality);
+			
+			session.getTransaction().commit();
+			
+		
+		} finally {
+			
+			session.close();
+		}
+		
+	}
+	
+	
+	
 }
