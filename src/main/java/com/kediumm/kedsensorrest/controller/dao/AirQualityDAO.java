@@ -147,6 +147,30 @@ public class AirQualityDAO implements Serializable {
 		
 	}
 	
+	/**
+	 * Update AirQuality record
+	 * 
+	 */
+	@XmlElement(name = "updateAirQuality")
+	public void updateAirQuality(AirQuality airQuality) {
+		
+		try {
+			
+			session = sessionFactory.getCurrentSession();
+			
+			session.beginTransaction();
+			
+			session.update(airQuality);
+			
+			session.getTransaction().commit();
+			
+		
+		} finally {
+			
+			session.close();
+		}
+		
+	}
 	
 	
 }
