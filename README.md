@@ -27,7 +27,7 @@ The quick start gives very basic example of running client and server on the sam
 >  * EJB 3.2
 >  * Hibernate 5.2.6 or above
 >  * Postgresql 9.4 or above
->  * Payara 
+>  * Payara 4.1.1 or above
 
 # Documents
 
