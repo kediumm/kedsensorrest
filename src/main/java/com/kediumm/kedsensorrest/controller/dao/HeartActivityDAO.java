@@ -146,4 +146,29 @@ public class HeartActivityDAO implements Serializable {
 		}
 		
 	}
+	
+	/**
+	 * Update HeartActivity record
+	 * 
+	 */
+	@XmlElement(name = "updateHeartActivity")
+	public void updateHeartActivity(HeartActivity heartActivity) {
+		
+		try {
+			
+			session = sessionFactory.getCurrentSession();
+			
+			session.beginTransaction();
+			
+			session.update(heartActivity);
+			
+			session.getTransaction().commit();
+			
+		
+		} finally {
+			
+			session.close();
+		}
+		
+	}
 }
