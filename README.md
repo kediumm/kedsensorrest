@@ -12,7 +12,7 @@ Technologies:
 >  * Gradle 3.3 
 >  * TestNG 6.9.10 
 
-Summary: Example Application built using an Onion-Architecture that incorporates some technologies
+Summary: Example Restful Application using some technologies
 
 This repository houses the source code for kedsensorrest.
 
