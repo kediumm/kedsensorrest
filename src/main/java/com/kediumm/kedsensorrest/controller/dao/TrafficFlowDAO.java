@@ -146,5 +146,30 @@ public class TrafficFlowDAO implements Serializable {
 		
 	}
 	
+	/**
+	 * Update TrafficFlow record
+	 * 
+	 */
+	@XmlElement(name = "updateTrafficFlow")
+	public void updateTrafficFlow(TrafficFlow trafficFlow) {
+		
+		try {
+			
+			session = sessionFactory.getCurrentSession();
+			
+			session.beginTransaction();
+			
+			session.update(trafficFlow);
+			
+			session.getTransaction().commit();
+			
+		
+		} finally {
+			
+			session.close();
+		}
+		
+	}
+	
 
 }
