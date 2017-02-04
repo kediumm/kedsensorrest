@@ -30,6 +30,7 @@ import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.NotFoundException;
 import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
@@ -107,6 +108,24 @@ public class TemperatureRestWS {
 		}
 		
 		_temperature.createTemperature(temperature);
+		
+		return Response.ok().build();
+	}
+	
+	/**
+	 * Update new Temperature record
+	 * @param temperature
+	 * @return
+	 */
+	@PUT
+	public Response update(Temperature temperature) {
+		
+		if ( temperature == null ) {
+			
+			throw new BadRequestException();
+		}
+		
+		_temperature.updateTemperature(temperature);
 		
 		return Response.ok().build();
 	}
