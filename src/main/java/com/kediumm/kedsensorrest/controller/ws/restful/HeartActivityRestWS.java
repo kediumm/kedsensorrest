@@ -30,6 +30,7 @@ import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.NotFoundException;
 import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
@@ -105,6 +106,24 @@ public class HeartActivityRestWS {
 		}
 		
 		_heartactivity.createHeartActivity(heartActivity);
+		
+		return Response.ok().build();
+	}
+	
+	/**
+	 * Update new HeartActivity record
+	 * @param heartActivity
+	 * @return
+	 */
+	@PUT
+	public Response update(HeartActivity heartActivity) {
+		
+		if ( heartActivity == null ) {
+			
+			throw new BadRequestException();
+		}
+		
+		_heartactivity.updateHeartActivity(heartActivity);
 		
 		return Response.ok().build();
 	}
