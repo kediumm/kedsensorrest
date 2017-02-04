@@ -3,6 +3,7 @@
 
 # Overview
 Author: Miguel Vale Teixeira
+
 Technologies: 
 >  * JDK 1.8 
 >  * EJB 3.2
