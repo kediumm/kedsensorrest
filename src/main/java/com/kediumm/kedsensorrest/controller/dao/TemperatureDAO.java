@@ -148,4 +148,29 @@ public class TemperatureDAO implements Serializable {
 		
 	}
 	
+	/**
+	 * Update Temperature record
+	 * 
+	 */
+	@XmlElement(name = "updateTemperature")
+	public void updateTemperature(Temperature temperature) {
+		
+		try {
+			
+			session = sessionFactory.getCurrentSession();
+			
+			session.beginTransaction();
+			
+			session.update(temperature);
+			
+			session.getTransaction().commit();
+			
+		
+		} finally {
+			
+			session.close();
+		}
+		
+	}
+	
 }
