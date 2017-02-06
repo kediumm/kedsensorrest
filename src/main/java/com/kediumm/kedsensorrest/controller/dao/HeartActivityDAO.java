@@ -124,6 +124,35 @@ public class HeartActivityDAO implements Serializable {
 	}
 	
 	/**
+	 * Get object of HeartActivity by id
+	 * @return HeartActivity object
+	 */
+	@XmlElement(name = "HeartActivityById")
+	public HeartActivity getHeartActivityById(Integer heartactivityID) {
+		
+		try {
+			
+			HeartActivity hactivity = null;
+			StringBuilder query = new StringBuilder("from HeartActivity h where h._id = ").append(heartactivityID);
+			
+			session = sessionFactory.getCurrentSession();
+			
+			session.beginTransaction();
+			
+			hactivity =  (HeartActivity) session.createQuery( query.toString() ).getSingleResult();
+			
+			session.getTransaction().commit();
+			
+			return hactivity;
+		
+		} finally {
+			
+			session.close();
+			
+		}
+	}
+	
+	/**
 	 * Create new HeartActivity record
 	 * 
 	 */
@@ -171,4 +200,30 @@ public class HeartActivityDAO implements Serializable {
 		}
 		
 	}
+	
+	/**
+	 * Delete HeartActivity record
+	 * 
+	 */
+	@XmlElement(name = "deleteHeartActivity")
+	public void deleteHeartActivity(HeartActivity heartActivity) {
+		
+		try {
+			
+			session = sessionFactory.getCurrentSession();
+			
+			session.beginTransaction();
+			
+			session.delete(heartActivity);
+			
+			session.getTransaction().commit();
+			
+		
+		} finally {
+			
+			session.close();
+		}
+		
+	}
+	
 }
