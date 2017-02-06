@@ -27,6 +27,7 @@ import java.util.List;
 import javax.ejb.Stateless;
 import javax.ws.rs.BadRequestException;
 import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.NotFoundException;
 import javax.ws.rs.POST;
@@ -126,6 +127,27 @@ public class HeartActivityRestWS {
 		_heartactivity.updateHeartActivity(heartActivity);
 		
 		return Response.ok().build();
+	}
+	
+	/**
+	 * Delete new HeartActivity record
+	 * @param id HeartActivity to delete
+	 * @return status of the operation
+	 */
+	@DELETE
+	@Path("{id}")
+	public Response delete(@PathParam("id") Integer heartactivityID) {
+		
+		HeartActivity heartActivity = _heartactivity.getHeartActivityById(heartactivityID);
+		
+		if ( heartActivity == null ) {
+			
+			throw new BadRequestException();
+		}
+		
+		_heartactivity.deleteHeartActivity(heartActivity);
+		
+		return Response.noContent().build();
 	}
 
 }
