@@ -123,6 +123,41 @@ public class AirQualityDAO implements Serializable {
 	}
 	
 	/**
+	 * Get object of AirQuality by id
+	 * @return AirQuality object
+	 */
+	@XmlElement(name = "AirQualitiesById")
+	public AirQuality getAirQualitiesById(Integer airqualityID) {
+		
+		try {
+			
+			AirQuality airqlt = null;
+			StringBuilder query = new StringBuilder("from AirQuality a where a._id = ").append(airqualityID);
+			
+			session = sessionFactory.getCurrentSession();
+			
+			session.beginTransaction();
+			
+			//List<AirQuality> lairqlt =  session.createQuery( query.toString() ).getResultList();
+			airqlt =  (AirQuality) session.createQuery( query.toString() ).getSingleResult();
+			/*
+			for (AirQuality a : lairqlt) {
+			
+				airqlt = a;
+			}
+			*/
+			session.getTransaction().commit();
+			
+			return airqlt;
+		
+		} finally {
+			
+			session.close();
+			
+		}
+	}
+	
+	/**
 	 * Create new AirQuality record
 	 * 
 	 */
@@ -161,6 +196,31 @@ public class AirQualityDAO implements Serializable {
 			session.beginTransaction();
 			
 			session.update(airQuality);
+			
+			session.getTransaction().commit();
+			
+		
+		} finally {
+			
+			session.close();
+		}
+		
+	}
+	
+	/**
+	 * Delete AirQuality record
+	 * 
+	 */
+	@XmlElement(name = "deleteAirQuality")
+	public void deleteAirQuality(AirQuality airQuality) {
+		
+		try {
+			
+			session = sessionFactory.getCurrentSession();
+			
+			session.beginTransaction();
+			
+			session.delete(airQuality);
 			
 			session.getTransaction().commit();
 			
