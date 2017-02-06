@@ -138,14 +138,8 @@ public class AirQualityDAO implements Serializable {
 			
 			session.beginTransaction();
 			
-			//List<AirQuality> lairqlt =  session.createQuery( query.toString() ).getResultList();
 			airqlt =  (AirQuality) session.createQuery( query.toString() ).getSingleResult();
-			/*
-			for (AirQuality a : lairqlt) {
 			
-				airqlt = a;
-			}
-			*/
 			session.getTransaction().commit();
 			
 			return airqlt;
