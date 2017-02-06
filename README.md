@@ -12,7 +12,7 @@ Technologies:
 >  * Gradle 3.3 
 >  * TestNG 6.9.10 
 
-Summary: Example Restful Application using some technologies
+Summary: Example Restful Application using some technologies. This app is only for trainning.
 
 This repository houses the source code for kedsensorrest.
 
