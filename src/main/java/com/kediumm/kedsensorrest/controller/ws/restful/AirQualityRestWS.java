@@ -27,6 +27,7 @@ import java.util.List;
 import javax.ejb.Stateless;
 import javax.ws.rs.BadRequestException;
 import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.NotFoundException;
 import javax.ws.rs.POST;
@@ -128,6 +129,27 @@ public class AirQualityRestWS {
 		_airquality.updateAirQuality(airQuality);
 		
 		return Response.ok().build();
+	}
+	
+	/**
+	 * Delete new AirQuality record
+	 * @param id AirQuality to delete
+	 * @return status of the operation
+	 */
+	@DELETE
+	@Path("{id}")
+	public Response delete(@PathParam("id") Integer airqualityID) {
+		
+		AirQuality airQuality = _airquality.getAirQualitiesById(airqualityID);
+		
+		if ( airQuality == null ) {
+			
+			throw new BadRequestException();
+		}
+		
+		_airquality.deleteAirQuality(airQuality);
+		
+		return Response.noContent().build();
 	}
 	
 }
