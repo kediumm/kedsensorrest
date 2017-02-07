@@ -27,6 +27,7 @@ import java.util.List;
 import javax.ejb.Stateless;
 import javax.ws.rs.BadRequestException;
 import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.NotFoundException;
 import javax.ws.rs.POST;
@@ -130,4 +131,25 @@ public class TemperatureRestWS {
 		return Response.ok().build();
 	}
 
+	/**
+	 * Delete new Temperature record
+	 * @param id Temperature to delete
+	 * @return status of the operation
+	 */
+	@DELETE
+	@Path("{id}")
+	public Response delete(@PathParam("id") Integer temperatureID) {
+		
+		Temperature temp = _temperature.getTemperatureById(temperatureID);
+		
+		if ( temp == null ) {
+			
+			throw new BadRequestException();
+		}
+		
+		_temperature.deleteTemperature(temp);
+		
+		return Response.noContent().build();
+	}
+	
 }
