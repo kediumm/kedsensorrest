@@ -27,6 +27,7 @@ import java.util.List;
 import javax.ejb.Stateless;
 import javax.ws.rs.BadRequestException;
 import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.NotFoundException;
 import javax.ws.rs.POST;
@@ -126,6 +127,27 @@ public class TrafficFlowRestWS {
 		_trafficflow.updateTrafficFlow(trafficFlow);
 		
 		return Response.ok().build();
+	}
+	
+	/**
+	 * Delete new TrafficFlow record
+	 * @param id TrafficFlow to delete
+	 * @return status of the operation
+	 */
+	@DELETE
+	@Path("{id}")
+	public Response delete(@PathParam("id") Integer trafficflowID) {
+		
+		TrafficFlow tflow = _trafficflow.getTrafficFlowById(trafficflowID);
+		
+		if ( tflow == null ) {
+			
+			throw new BadRequestException();
+		}
+		
+		_trafficflow.deleteTrafficFlow(tflow);
+		
+		return Response.noContent().build();
 	}
 
 }
