@@ -125,6 +125,35 @@ public class TemperatureDAO implements Serializable {
 	}
 	
 	/**
+	 * Get object of Temperature by id
+	 * @return Temperature object
+	 */
+	@XmlElement(name = "TemperatureById")
+	public Temperature getTemperatureById(Integer temperatureID) {
+		
+		try {
+			
+			Temperature temp = null;
+			StringBuilder query = new StringBuilder("from Temperature t where t._id = ").append(temperatureID);
+			
+			session = sessionFactory.getCurrentSession();
+			
+			session.beginTransaction();
+			
+			temp =  (Temperature) session.createQuery( query.toString() ).getSingleResult();
+			
+			session.getTransaction().commit();
+			
+			return temp;
+		
+		} finally {
+			
+			session.close();
+			
+		}
+	}
+	
+	/**
 	 * Create new Temperature record
 	 * 
 	 */
@@ -162,6 +191,31 @@ public class TemperatureDAO implements Serializable {
 			session.beginTransaction();
 			
 			session.update(temperature);
+			
+			session.getTransaction().commit();
+			
+		
+		} finally {
+			
+			session.close();
+		}
+		
+	}
+	
+	/**
+	 * Delete Temperature record
+	 * 
+	 */
+	@XmlElement(name = "deleteTemperature")
+	public void deleteTemperature(Temperature temperature) {
+		
+		try {
+			
+			session = sessionFactory.getCurrentSession();
+			
+			session.beginTransaction();
+			
+			session.delete(temperature);
 			
 			session.getTransaction().commit();
 			
