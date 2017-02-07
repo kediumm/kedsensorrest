@@ -123,6 +123,35 @@ public class TrafficFlowDAO implements Serializable {
 	}
 	
 	/**
+	 * Get object of TrafficFlow by id
+	 * @return TrafficFlow object
+	 */
+	@XmlElement(name = "TrafficFlowById")
+	public TrafficFlow getTrafficFlowById(Integer trafficflowID) {
+		
+		try {
+			
+			TrafficFlow tflow = null;
+			StringBuilder query = new StringBuilder("from TrafficFlow f where f._id = ").append(trafficflowID);
+			
+			session = sessionFactory.getCurrentSession();
+			
+			session.beginTransaction();
+			
+			tflow =  (TrafficFlow) session.createQuery( query.toString() ).getSingleResult();
+			
+			session.getTransaction().commit();
+			
+			return tflow;
+		
+		} finally {
+			
+			session.close();
+			
+		}
+	}
+	
+	/**
 	 * Create new TrafficFlow record
 	 * 
 	 */
@@ -171,5 +200,29 @@ public class TrafficFlowDAO implements Serializable {
 		
 	}
 	
+	/**
+	 * Delete TrafficFlow record
+	 * 
+	 */
+	@XmlElement(name = "deleteTrafficFlow")
+	public void deleteTrafficFlow(TrafficFlow trafficFlow) {
+		
+		try {
+			
+			session = sessionFactory.getCurrentSession();
+			
+			session.beginTransaction();
+			
+			session.delete(trafficFlow);
+			
+			session.getTransaction().commit();
+			
+		
+		} finally {
+			
+			session.close();
+		}
+		
+	}
 
 }
